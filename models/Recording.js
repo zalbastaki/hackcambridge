@@ -1,6 +1,6 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
-var storage = require("../storage/s3.js");
+var storage = require("../storage/index.js");
 
 /**
  * Recording Model
