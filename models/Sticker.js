@@ -18,5 +18,5 @@ Sticker.add({
 /**
  * Registration
  */
-Sticker.defaultColumns = 'user.name, word.name, type';
+Sticker.defaultColumns = 'user, word, type';
 Sticker.register();

@@ -7,7 +7,7 @@ var storage = new keystone.Storage({
     secret: process.env.S3_SECRET,
     bucket: process.env.S3_BUCKET,
     region: process.env.S3_REGION,
-    publicUrl: process.env.CLOUDFRONT_URI, // optional; sets a custom domain for public urls - see below for details
+    publicUrl: file => process.env.CLOUDFRONT_URI + "/" + file.filename, // optional; sets a custom domain for public urls - see below for details
     uploadParams: { // optional; add S3 upload params; see below for details
       ACL: 'public-read',
     },
