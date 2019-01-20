@@ -1,45 +1,47 @@
 {{!< default}}
 
-{{!-- Me --}}
+<div class="container">
+	{{!-- Me --}}
 
-<p>
-	Me: {{ user.name.first }} {{ user.name.last }}
-	<br>
-	({{ user._id }})
-</p>
+	<p>
+		Me: {{ user.name.first }} {{ user.name.last }}
+		<br>
+		({{ user._id }})
+	</p>
 
-<div class="tabbed-area">
+    <div class="tabbed-area">
 
-    <label for="stickers" class="tab-label">Stickers</label>
-    <input id="stickers" class="tab-radio" type="radio" name="tabs" checked="">
+        <label for="stickers" class="tab-label">Stickers</label>
+        <input id="stickers" class="tab-radio" type="radio" name="tabs" checked="">
 
-    <label for="recordings" class="tab-label">Recordings</label>
-    <input id="recordings" class="tab-radio" type="radio" name="tabs">
+        <label for="recordings" class="tab-label">Recordings</label>
+        <input id="recordings" class="tab-radio" type="radio" name="tabs">
 
-    <div id="stickers-content">
-        <p>Stickers:</p>
-        <ul>
-        {{#each stickers}}
-        <li>
-            Word: {{word.name}}
-            <br>
-            Sticker: {{type}}
-        </li>
-        {{/each}}
-        </ul>
-    </div>
-
-    <div id="recordings-content">
-        <p>Recordings:</p>
-        {{#each recordings}}
-        <div>
-            {{name}}
-            <br>
-            <audio controls>
-                <source src="{{ file.url }}" type="{{ file.mimetype }}">
-                <a href="{{ file.url }}">{{ file.url }}</a>
-            </audio>
+        <div id="stickers-content">
+            <p>Stickers:</p>
+            <ul>
+            {{#each stickers}}
+            <li>
+                Word: {{word.name}}
+                <br>
+                Sticker: {{type}}
+            </li>
+            {{/each}}
+            </ul>
         </div>
-        {{/each}}
+
+        <div id="recordings-content">
+            <p>Recordings:</p>
+            {{#each recordings}}
+            <div>
+                {{name}}
+                <br>
+                <audio controls>
+                    <source src="{{ file.url }}" type="{{ file.mimetype }}">
+                    <a href="{{ file.url }}">{{ file.url }}</a>
+                </audio>
+            </div>
+            {{/each}}
+        </div>
     </div>
 </div>

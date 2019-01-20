@@ -13,10 +13,10 @@ Recording.add({
     avatar: { type: Types.CloudinaryImage },
     user: { type: Types.Relationship, ref: 'User', initial: true, required: true },
     word: { type: Types.Relationship, ref: 'Word', initial: true, required: true },
-    file: { type: Types.File, storage: storage, initial: true, required: true },
+    file: { type: Types.File, storage: storage, initial: true, required: false },
     recordedAt: { type: Types.Datetime, default: Date.now },
-    isValid: { type: Types.Boolean },
-    voice: { type: Types.Text }
+    isValid: { type: Types.Boolean, default: false },
+    voice: { type: Types.Text, default: null }
 });
 
 /**

@@ -22,6 +22,8 @@
 
 	</head>
 	<body>
+		<div style="height: 50px;"></div>
+
 		<div id="header">
 			<div id="top-bar">
 				<div class="top-bar-item" id="current-score">Score: {{ score }}</div>
@@ -29,6 +31,7 @@
 				<div class="top-bar-item" id="countdown">06:43:24</div>
 			</div>
 		</div>
+
 		<div id="body">
 			<!--
 				Flash messages allow you to display once-off status messages to users, e.g. form
@@ -38,13 +41,37 @@
 			<!-- The content block should contain the body of your template's content-->
 			{{{body}}}
 		</div>
+		
 		<div id="footer">
-			<nav id="nav-bar">
-				<a href="/leaderboard" class="nav-bar-item" {{#ifeq section "leaderboard"}}data-active=""{{/ifeq}}><i class="fas fa-list-ol"></i></a>
-				<a href="/" class="nav-bar-item nav-bar-item-clickable" {{#ifeq section "home"}}data-active=""{{/ifeq}}><i class="fas fa-microphone"></i></a>
-				<a href="/profile" class="nav-bar-item" {{#ifeq section "profile"}}data-active=""{{/ifeq}}><i class="fas fa-user"></i></a>
-			</nav>
 		</div>
+		
+		<nav id="nav-bar">
+			<a
+				href="/leaderboard"
+				class="nav-bar-item"
+				{{#ifeq section "leaderboard"}}data-active=""{{/ifeq}}
+			>
+				<i class="fas fa-list-ol"></i>
+			</a>
+			<a
+				href="/"
+				id="record"
+				class="nav-bar-item nav-bar-item-clickable"
+				{{#ifeq section "home"}}data-active=""{{/ifeq}}
+			>
+				<i class="fas fa-microphone"></i>
+				<i class="fas fa-dot-circle"></i>
+			</a>
+			<a
+				href="/profile"
+				class="nav-bar-item"
+				{{#ifeq section "profile"}}data-active=""{{/ifeq}}
+			>
+				<i class="fas fa-user"></i>
+			</a>
+		</nav>
+
+		<div style="height: 156px;"></div>
 		
 		{{!--
 			//- jQuery 1.11.3 is included by default, and required by both Bootstrap
@@ -57,6 +84,7 @@
 			//- them specifically here, instead of bootstrap-3.3.5.min.js
 		--}}
 		<script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+		<script src="/js/main.js"></script>
 		{{{isAdminEditorJS user}}}
 	</body>
 </html>
