@@ -1,11 +1,11 @@
 {{!< default}}
 
-{{!-- Me --}}
-
-<div>
-    Me: {{ user.name.first }} {{ user.name.last }}
-    <br>
-    ({{ user._id }})
+<div id="profile-info">
+    {{#if user.avatar}}
+    <img class="profile-picture" src="{{ user.avatar.secure_url }}" alt="profile picture">
+    {{else}}
+    {{/if}}
+    <span id="profile-name">{{ user.name.first }} {{ user.name.last }}</span>
 </div>
 
 <div class="tabbed-area">
