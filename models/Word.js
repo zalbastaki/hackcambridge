@@ -11,6 +11,8 @@ Word.add({
     name: { type: Types.Text, initial: true, required: true },
     class: { type: Types.Select, options:'Noun, Verb, Adjective, Adverb, Pronoun, Preposition, Conjuction, Determiner, Exclamation', initial: true },
     definition: { type: Types.Textarea, initial: true, required: true },
+    phoneticTranscription: { type: Types.Text, initial: true },
+    audioSrc: { type: Types.Url, initial: true, label: "Audio Source" },
     endsAt: { type: Types.Datetime, initial: true, required: true }
 });
 
@@ -18,5 +20,5 @@ Word.add({
 /**
  * Registration
  */
-Word.defaultColumns = 'name, endsAt';
+Word.defaultColumns = 'name, class, endsAt';
 Word.register();
