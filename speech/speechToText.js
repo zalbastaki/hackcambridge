@@ -20,7 +20,7 @@ async function speechToText(file) {
 		return body.DisplayText;
 	} else {
 		console.error(body);
-		throw new Error('Azure Speech-To-Text failed with status ' + body.RecognitionStatus);
+		throw new Error('Azure speech-to-text failed with status ' + body.RecognitionStatus);
 	}
 }
 

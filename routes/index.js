@@ -38,7 +38,9 @@ exports = module.exports = function (app) {
 	app.get('/', routes.views.index);
 	app.get('/leaderboard', routes.views.leaderboard);
 	app.get('/profile', routes.views.profile);
-
+	app.get('/signup', routes.views.signup);
+	
+	app.post('/api/signup', routes.controllers.signup);
 	app.post('/api/recording', routes.controllers.recording);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

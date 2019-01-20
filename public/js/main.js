@@ -61,7 +61,7 @@ $(document).ready(function() {
 								}
 							} else {
 								$('.finish-record-container p')
-									.text(body.error)
+									.text(body.error || 'Please sign in to submit your recording.')
 									.removeClass('text-success')
 									.addClass('text-danger');
 								

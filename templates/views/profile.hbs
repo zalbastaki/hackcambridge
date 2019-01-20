@@ -1,12 +1,16 @@
 {{!< default}}
 
 <div id="profile-info">
-    {{#if user.hasAvatar}}
-    <img class="profile-picture" src="{{ user.avatar.secure_url }}" alt="profile picture">
-    {{else}}
-    <img class="profile-picture" src="/images/user-circle-regular.svg" alt="profile picture">
+	{{#if user}}
+		{{#if user.hasAvatar}}
+			<img class="profile-picture" src="{{ user.avatar.secure_url }}" alt="profile picture">
+		{{else}}
+			<img class="profile-picture" src="/images/user-circle-regular.svg" alt="profile picture">
+		{{/if}}
+    	<span id="profile-name">{{ user.name.first }} {{ user.name.last }}</span>
+	{{else}}
+		You are not signed in.
     {{/if}}
-    <span id="profile-name">{{ user.name.first }} {{ user.name.last }}</span>
 </div>
 
 <div class="tabbed-area">
@@ -30,6 +34,9 @@
 			<br>
 			{{ word.definition }}
         </div>
+		{{else}}
+		You have no stickers yet! You can get a sticker by placing in the top 50 on the leaderboard
+		for a specific word.
         {{/each}}
     </div>
 
@@ -53,6 +60,8 @@
             </audio>
             <br>
         </div>
+		{{else}}
+		You have no recordings yet! Click on the microphone to record your first word.
         {{/each}}
     </div>
 </div>

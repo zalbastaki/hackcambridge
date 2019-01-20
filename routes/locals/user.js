@@ -1,3 +1,7 @@
 module.exports = function (req) {
-	return req.user
+	const user = req.user;
+	if (user) {
+		user.hasAvatar = user.avatar && user.avatar.secure_url;
+	}
+	return user;
 };

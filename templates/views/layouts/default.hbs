@@ -33,9 +33,21 @@
 
 		<div id="header">
 			<div id="top-bar">
+				{{#if user}}
 				<div class="top-bar-item" id="current-score">Score: {{ score }}</div>
+				{{#if rank}}
 				<div class="top-bar-item" id="current-rank">Rank: {{ rank }}</div>
-				<div class="top-bar-item" id="countdown">06:43:24</div>
+				{{else}}
+				<div class="top-bar-item" id="current-rank">Unranked</div>
+				{{/if}}
+				{{else}}
+				<div class="top-bar-item">
+					<button class="btn btn-secondary" style="color: grey;" onclick="window.location.href = '/keystone/signin'">Sign In</button>
+				</div>
+				<div class="top-bar-item">
+					<button class="btn btn-secondary" style="color: grey;" onclick="window.location.href = '/signup'">Sign Up</button>
+				</div>
+				{{/if}}
 			</div>
 		</div>
 
