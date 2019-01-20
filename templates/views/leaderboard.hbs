@@ -1,14 +1,16 @@
 {{!< default}}
 
-{{!-- Leaderboard --}}
-<p>Leaderboard:</p>
+<div class="container">
+	{{!-- Leaderboard --}}
+	<p>Leaderboard:</p>
 
-<ul>
-{{#each leaderboard}}
-<li>
-	User: {{user.name.first}} {{user.name.last}}
-	<br>
-	Score: {{score}}
-</li>
-{{/each}}
-</ul>
+	<ul>
+	{{#each leaderboard}}
+	<li>
+		User: {{user.name.first}} {{user.name.last}}
+		<br>
+		Score: {{score}}
+	</li>
+	{{/each}}
+	</ul>
+</div>
