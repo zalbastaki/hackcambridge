@@ -11,7 +11,7 @@ const defaultLocals = [
 
 module.exports = function initLocals (req, res, next) {
 	return Promise.all(defaultLocals.map(key => require('./' + key)(req)))
-    .then((values) => zipObject(defaultLocals, values))
-    .then((locals) => { Object.assign(res.locals, locals); })
-    .then(next);
+		.then((values) => zipObject(defaultLocals, values))
+		.then((locals) => { Object.assign(res.locals, locals) })
+		.then(next);
 };

@@ -1,8 +1,14 @@
+const getUser = require('./user.js');
 const getLeaderboard = require('./leaderboard.js');
 
 module.exports = async function (req) {
-	const user = req.user;
-	const leaderboard = await getLeaderboard(req);
+	const [
+		user,
+		leaderboard,
+	] = await Promise.all([
+		getUser(req),
+		getLeaderboard(req),
+	]);
 	if (user && leaderboard) {
 		const rank = leaderboard
 			.map((x) => String(x._id))

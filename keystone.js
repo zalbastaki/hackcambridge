@@ -31,6 +31,7 @@ keystone.init({
 	'cloudinary config': process.env.CLOUDINARY_URL,
 
 	'mongo': process.env.MONGO_URI,
+	'session store': 'mongo',
 
 	'auto update': true,
 	'session': true,
