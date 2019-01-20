@@ -1,4 +1,37 @@
 {{!< default}}
 
-<p>profile</p>
+{{!-- Me --}}
 
+<p>
+	Me: {{ user.name.first }} {{ user.name.last }}
+	<br>
+	({{ user._id }})
+</p>
+
+{{!-- Stickers --}}
+
+<p>Stickers:</p>
+
+<ul>
+{{#each stickers}}
+<li>
+	Word: {{word.name}}
+	<br>
+	Sticker: {{type}}
+</li>
+{{/each}}
+</ul>
+
+{{!-- Recordings --}}
+<p>Recordings:</p>
+
+{{#each recordings}}
+<div>
+	{{name}}
+	<br>
+	<audio controls>
+		<source src="{{ file.url }}" type="{{ file.mimetype }}">
+		<a href="{{ file.url }}">{{ file.url }}</a>
+	</audio>
+</div>
+{{/each}}

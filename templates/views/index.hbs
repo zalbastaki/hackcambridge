@@ -1,64 +1,11 @@
 {{!< default}}
 
-{{!-- Me --}}
-
-<p>
-	Me: {{ user.name.first }} {{ user.name.last }}
-	<br>
-	({{ user._id }})
-</p>
-
-{{!-- Word --}}
-
-<p>Word: {{ word.name }}</p>
-
-{{!-- Stickers --}}
-
-<p>Stickers:</p>
-
-<ul>
-{{#each stickers}}
-<li>
-	Word: {{word.name}}
-	<br>
-	Sticker: {{type}}
-</li>
-{{/each}}
-</ul>
-
-{{!-- Word --}}
-
-<p>Score: {{ score }}</p>
-
-{{!-- Rank --}}
-
-<p>Rank: {{ rank }}</p>
-
-{{!-- Leaderboard --}}
-<p>Leaderboard:</p>
-
-<ul>
-{{#each leaderboard}}
-<li>
-	User: {{user.name.first}} {{user.name.last}}
-	<br>
-	Score: {{score}}
-</li>
-{{/each}}
-</ul>
-
-{{!-- Recordings --}}
-<p>Recordings:</p>
-
-<ul>
-{{#each recordings}}
-<li>
-	{{name}}
-	<br>
-	<audio controls>
-		<source src="{{ file.url }}" type="{{ file.mimetype }}">
-		<a href="{{ file.url }}">{{ file.url }}</a>
-	</audio>
-</li>
-{{/each}}
-</ul>
+<div class="index-container">
+	<div class="main-text">
+		<p>SAY THIS:</p>
+		<p id="word">{{ word.name }}</p>
+	</div>
+	<div class="secondary-text">
+		<p id="definition">{{ word.definition }}</p>
+	</div>
+</div>
