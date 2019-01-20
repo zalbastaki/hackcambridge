@@ -24,6 +24,6 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node keystone.js",
-    "debug": "nodemon --inspect keystone.js"
+    "debug": "nodemon -i public --inspect keystone.js"
   }
 }

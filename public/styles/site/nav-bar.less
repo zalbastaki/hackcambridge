@@ -1,5 +1,7 @@
 #nav-bar {
-    position: fixed;
+	position: fixed;
+	left: 0;
+	right: 0;
     bottom: 0;
     width: 100vw;
     left: 0;
@@ -18,7 +20,7 @@
 }
 
 .nav-bar-item[data-active] {
-    background: #005194;
+	background: #005194;
 }
 
 .nav-bar-item-clickable[data-active] {
@@ -28,6 +30,35 @@
     padding-top: 25px;
 }
 
-.nav-bar-item:hover {
-    color: #00569c;
+a.nav-bar-item:hover,
+a.nav-bar-item:focus,
+a.nav-bar-item:hover[data-active],
+a.nav-bar-item:focus[data-active] {
+    color: grey;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+}
+
+#record {
+	transition: 0.5s all ease-in-out;
+
+	.fa-microphone { display: inline; }
+	.fa-dot-circle { display: none; }
+
+	&.recording {
+		color: tomato;
+		padding-left: 30px;
+		padding-right: 30px;
+		animation: 1s breathing infinite;
+
+		.fa-microphone { display: none; }
+		.fa-dot-circle { display: inline; }
+	}
+}
+
+@keyframes breathing {
+	0% { font-size: 100px; }
+	50% { font-size: 110px; }
+	100% { font-size: 100px; }
 }
