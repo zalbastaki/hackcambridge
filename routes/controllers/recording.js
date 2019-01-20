@@ -32,6 +32,7 @@ exports = module.exports = async function (req, res) {
 			res.json({
 				success: true,
 				text: audioText,
+				isValid: recording.isValid,
 			});
 		} else {
 			res.status(401);

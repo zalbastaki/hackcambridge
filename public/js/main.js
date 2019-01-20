@@ -36,9 +36,44 @@ $(document).ready(function() {
 						});
 						const formData = new FormData();
 						formData.append('recording', file, fileName);
-						fetch('/api/recording', {
+						fetch('/api/recording' + window.location.search, {
 							method: 'POST',
 							body: formData,
+						}).then(function (res) {
+							return res.json();
+						}).then(function (body) {
+							console.log(body)
+							$('.finish-record').addClass('finish-record-start');
+							$('.finish-record-container').addClass('finish-record-container-start');
+							if (body.success) {
+								if (body.isValid) {
+									$('.finish-record-container p')
+										.text('You pronounced the word "' + body.text + '" correctly! Now encourage other people to learn it.')
+										.removeClass('text-danger')
+										.addClass('text-success');
+									$('.finish-record-container button')
+										.text('Continue');
+								} else {
+									$('.finish-record-container p')
+										.text('Your pronounciation of "' + body.text + '" was off, try again, make sure you listen to the correct pronounciation.')
+										.removeClass('text-success')
+										.addClass('text-danger')
+								}
+							} else {
+								$('.finish-record-container p')
+									.text(body.error)
+									.removeClass('text-success')
+									.addClass('text-danger');
+								
+							}
+						}).catch(function (err) {
+							console.error(err)
+							$('.finish-record-container p')
+								.text(err.message)
+								.removeClass('text-success')
+								.addClass('text-danger');
+							$('.finish-record').addClass('finish-record-start');
+							$('.finish-record-container').addClass('finish-record-container-start');
 						});
 					} else {
 						throw new Error('Unsupported mime type ' + mediaRecorder.mimeType);

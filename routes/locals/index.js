@@ -7,6 +7,8 @@ const defaultLocals = [
 	'rank',
 	'leaderboard',
 	'recordings',
+	'skip',
+	'lastWordIndex',
 ];
 
 module.exports = function initLocals (req, res, next) {

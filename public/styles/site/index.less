@@ -18,3 +18,70 @@
     font-size: 40px;
     text-transform: uppercase;
 }
+
+.finish-record {
+	position: fixed;
+	z-index: 20;
+	background-color: #005194;
+	border-radius: 50%;
+	top: 100vh;
+	left: 50vw;
+	right: 50vw;
+	bottom: 0;
+
+	&-start {
+		animation: 2s finish-record forwards ease-in-out;
+	}
+}
+
+@keyframes finish-record {
+	0% {
+		top: 100vh;
+		left: 50vw;
+		right: 50vw;
+		bottom: 0;
+	}
+	30% {
+		left: 0;
+		right: 0;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	60% {
+		border-radius: 50%;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	100% {
+		transform: none;
+		top: 0;
+		left: 0;
+		right: 0;
+		border-radius: 0;
+	}
+}
+
+.finish-record-container {
+	color: white;
+	position: fixed;
+    top: 0;
+	left: 0;
+	padding: 20px;
+	padding-top: 120px;
+    z-index: 21;
+    width: 100vw;
+    height: 100vh;
+	pointer-events: none;
+	opacity: 0;
+	
+	&-start {
+		pointer-events: initial;
+		animation: .8s finish-record-container forwards ease-in-out;
+		animation-delay: 1.75s;
+	}
+}
+
+@keyframes finish-record-container {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}

@@ -54,14 +54,14 @@
 		
 		<nav id="nav-bar">
 			<a
-				href="/leaderboard"
+				href="/leaderboard?skip={{skip}}"
 				class="nav-bar-item"
 				{{#ifeq section "leaderboard"}}data-active=""{{/ifeq}}
 			>
 				<i class="fas fa-list-ol"></i>
 			</a>
 			<a
-				href="/"
+				href="/?skip={{skip}}"
 				id="record"
 				class="nav-bar-item nav-bar-item-clickable"
 				{{#ifeq section "home"}}data-active=""{{/ifeq}}
@@ -70,7 +70,7 @@
 				<i class="fas fa-dot-circle"></i>
 			</a>
 			<a
-				href="/profile"
+				href="/profile?skip={{skip}}"
 				class="nav-bar-item"
 				{{#ifeq section "profile"}}data-active=""{{/ifeq}}
 			>
