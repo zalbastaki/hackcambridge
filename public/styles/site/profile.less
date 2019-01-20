@@ -1,0 +1,29 @@
+.tabbed-area {
+    width: 100vw;
+    padding: 10px 30px 30px 30px;
+    background: #0078da;
+    position: fixed;
+    bottom: 0;
+    height: 70vh;
+}
+
+.tab-label {
+    width: 40vw;
+}
+
+.tab-radio {
+    display: none;
+  }
+  
+  #stickers-content,
+  #recordings-content {
+    display: none;
+  }
+  
+  #stickers:checked ~ #stickers-content {
+     display: block;
+  }
+  
+  #recordings:checked ~ #recordings-content {
+     display: block;
+  }
