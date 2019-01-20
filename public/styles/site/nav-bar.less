@@ -1,0 +1,27 @@
+#nav-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    align-items: flex-end;
+}
+
+.nav-bar-item {
+    flex-grow: 1;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    background: #0068bd;
+    padding: 10px;
+}
+
+.nav-bar-item[data-active] {
+    background: #005194;
+}
+
+.nav-bar-item-clickable[data-active] {
+    font-size: 100px;
+    flex-grow: 2;
+    border-radius: 50% 50% 0px 0px;
+    padding-top: 25px;
+}
