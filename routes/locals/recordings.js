@@ -11,7 +11,7 @@ module.exports = async function (req) {
 		getUser(req),
 		getWord(req),
 	]);
-	if (user) {
+	if (user && word) {
 		return Recording.model.find({
 			user: user._id,
 			word: word._id,

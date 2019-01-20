@@ -6,19 +6,25 @@
 		<p id="word">{{ word.name }}</p>
 
 		<label>
+			{{#if word.phoneticTranscription }}
 			<p>
 				{{ word.phoneticTranscription }}
 			</p>
+			{{/if}}
 
+			{{#if word.audioUrl}}
 			<button class="btn btn-secondary" onclick="$('#pronounce')[0].play()" style="color: #222; border-radius: 50%; width: 48px; height: 48px;">
 				<i class="fas fa-volume"></i>
 			</button>
 
-			<audio id="pronounce" src="https://media.merriam-webster.com/audio/prons/en/us/mp3/w/wherew02.mp3" type="audio/mp3"></audio>
+			<audio id="pronounce" src="{{ word.audioUrl }}" type="audio/mp3"></audio>
+			{{/if}}
 		</label>
 	</div>
 	<div class="text-left">
+		{{#if word.definition }}
 		<h3>Definition</h3>
 		<p id="definition">{{ word.definition }}</p>
+		{{/if }}
 	</div>
 </div>

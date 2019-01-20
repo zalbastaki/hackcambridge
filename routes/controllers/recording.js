@@ -44,6 +44,7 @@ exports = module.exports = async function (req, res) {
 		res.status(500);
 		res.json({
 			success: false,
+			error: err.message,
 		});
 	}
 };
