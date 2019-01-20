@@ -1,29 +1,63 @@
 .tabbed-area {
     width: 100vw;
-    padding: 10px 30px 30px 30px;
-    background: #0078da;
     position: fixed;
     bottom: 0;
     height: 70vh;
 }
 
-.tab-label {
-    width: 40vw;
+#tab-labels {
+    display: flex;
+    align-items: flex-end;
+}
+
+#stickers-label,
+#recordings-label {
+    flex-grow: 1;
+    padding: 10px;
+    text-align: center;
+    background: #006cc4;
+    margin: 0;
 }
 
 .tab-radio {
     display: none;
-  }
-  
-  #stickers-content,
-  #recordings-content {
+}
+
+#stickers-content,
+#recordings-content {
+    padding: 30px 30px 0px 30px;
     display: none;
-  }
-  
-  #stickers:checked ~ #stickers-content {
-     display: block;
-  }
-  
-  #recordings:checked ~ #recordings-content {
-     display: block;
-  }
+    background: #0078da;
+    height: ~"calc(100% - 112px)";
+    overflow: scroll;
+}
+
+#stickers:checked ~ #stickers-content {
+    display: block;
+}
+
+#stickers:checked ~ #tab-labels #stickers-label {
+    background: #0078da;
+    flex-grow: 2;
+    padding-top: 20px;
+}
+
+#recordings:checked ~ #recordings-content {
+    display: block;
+}
+
+#recordings:checked ~ #tab-labels #recordings-label {
+    background: #0078da;
+    flex-grow: 2;
+    padding-top: 20px;
+}
+
+#recording-name {
+    margin: 0;
+}
+
+#recording-file {
+    margin-bottom: 20px;
+    margin-top: -10px;
+    max-width: 80vw;
+}
