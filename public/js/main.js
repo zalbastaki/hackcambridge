@@ -10,8 +10,7 @@ $(document).ready(function() {
 	let mediaRecorder;
 	let audioChunks;
 
-
-	$('#record[data-active=""]').on('touchstart', function(event) {
+	function onDown(event) {
 		event.preventDefault();
 		$(this).addClass('recording')
 
@@ -80,11 +79,19 @@ $(document).ready(function() {
 					}
 				});
 			});
-	})
+	}
 
-	$('#record[data-active=""]').on('touchend', function(event) {
+	function onUp(event) {
 		event.preventDefault();
 		$(this).removeClass('recording')
 		mediaRecorder.stop();
+	}
+
+	$('#record[data-active=""]').on('touchstart', onDown)
+	$('#record[data-active=""]').on('touchend', onUp)
+	$('#record[data-active=""]').on('mousedown', onDown)
+	$('#record[data-active=""]').on('mouseup', onUp)
+	$('#record[data-active=""]').on('click', function (event) {
+		event.preventDefault();
 	})
 });

@@ -1,33 +1,34 @@
 {{!< default}}
 
-<div class="container index-container">
-	<div class="main-text">
-		<p>SAY THIS:</p>
-		<p id="word">{{ word.name }}</p>
+<div class="container">
+	<div class="index-container">
+		<div class="main-text">
+			<p>SAY THIS:</p>
+			<p id="word">{{ word.name }}</p>
 
-		<label>
-			{{#if word.phoneticTranscription }}
-			<p>
-				{{ word.phoneticTranscription }}
-			</p>
-			{{/if}}
+			<label>
+				{{#if word.phoneticTranscription }}
+				<p>
+					{{ word.phoneticTranscription }}
+				</p>
+				{{/if}}
 
-			{{#if word.audioSrc}}
-			<button class="btn btn-secondary" onclick="$('#pronounce')[0].play()" style="color: #222; border-radius: 50%; width: 48px; height: 48px;">
-				<i class="fas fa-volume"></i>
-			</button>
+				{{#if word.audioSrc}}
+				<button class="btn btn-secondary" onclick="$('#pronounce')[0].play()" style="color: #222; border-radius: 50%; width: 48px; height: 48px;">
+					<i class="fas fa-volume"></i>
+				</button>
 
-			<audio id="pronounce" src="{{ word.audioSrc }}" type="audio/mp3"></audio>
-			{{/if}}
-		</label>
+				<audio id="pronounce" src="{{ word.audioSrc }}" type="audio/mp3"></audio>
+				{{/if}}
+			</label>
+		</div>
+		<div class="text-left">
+			{{#if word.definition }}
+			<h3>Definition</h3>
+			<p id="definition">{{ word.definition }}</p>
+			{{/if }}
+		</div>
 	</div>
-	<div class="text-left">
-		{{#if word.definition }}
-		<h3>Definition</h3>
-		<p id="definition">{{ word.definition }}</p>
-		{{/if }}
-	</div>
-
 </div>
 
 <div class="container" style="display: flex; margin-top: 30px;">
@@ -51,17 +52,19 @@
 <div class="finish-record"></div>
 
 <div class="finish-record-container">
-	<h2>{{word.name}}</h2>
-	<br>
-	<br>
-	<p></p>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="text-right">
-		<button type="button" class="btn btn-secondary" onclick="window.location.reload()" style="color: grey;">
-			Try Again
-		</button>
+	<div class="container">
+		<h2>{{word.name}}</h2>
+		<br>
+		<br>
+		<p></p>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="text-right">
+			<button type="button" class="btn btn-secondary" onclick="window.location.reload()" style="color: grey;">
+				Try Again
+			</button>
+		</div>
 	</div>
 </div>
