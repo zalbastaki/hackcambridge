@@ -15,7 +15,7 @@ module.exports = async function (req) {
 		return Recording.model.find({
 			user: user._id,
 			word: word._id,
-		});
+		}).populate('word');
 	} else {
 		return null;
 	}

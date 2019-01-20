@@ -1,9 +1,10 @@
 {{!< default}}
 
 <div id="profile-info">
-    {{#if user.avatar}}
+    {{#if user.hasAvatar}}
     <img class="profile-picture" src="{{ user.avatar.secure_url }}" alt="profile picture">
     {{else}}
+    <img class="profile-picture" src="/images/user-circle-regular.svg" alt="profile picture">
     {{/if}}
     <span id="profile-name">{{ user.name.first }} {{ user.name.last }}</span>
 </div>
@@ -19,26 +20,38 @@
     </div>
 
     <div id="stickers-content">
-        <ul>
         {{#each stickers}}
-        <li>
-            Word: {{word.name}}
-            <br>
-            Sticker: {{type}}
-        </li>
+        <div class="sticker">
+			<span class="sticker-{{ toLowerCase type }}">
+            	{{ word.name }}
+			</span>
+			<br>
+			{{ word.phoneticTranscription }}
+			<br>
+			{{ word.definition }}
+        </div>
         {{/each}}
-        </ul>
     </div>
 
     <div id="recordings-content">
         {{#each recordings}}
         <div>
-            <p id="recording-name">{{name}}</p>
+            <p id="recording-name">
+				{{#if isValid}}
+				<i class="fas fa-check-circle" style="color: lightgreen;"></i>
+				{{else}}
+				<i class="fas fa-times-circle" style="color: tomato;"></i>
+				{{/if}}
+				<strong>{{word.name}}</strong>
+				<br>
+				<small>{{recordedAt}}</small>
+			</p>
             <br>
             <audio controls id="recording-file">
                 <source src="{{ file.url }}" type="{{ file.mimetype }}">
                 <a href="{{ file.url }}">{{ file.url }}</a>
             </audio>
+            <br>
         </div>
         {{/each}}
     </div>

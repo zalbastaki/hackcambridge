@@ -1,3 +1,3 @@
 module.exports = function (req) {
-	return req.user;
+	return req.user
 };

@@ -2,15 +2,15 @@
 
 <div class="container">
 	{{!-- Leaderboard --}}
-	<p>Leaderboard:</p>
+	<h1>Leaderboard</h1>
 
-	<ul>
 	{{#each leaderboard}}
-	<li>
-		User: {{user.name.first}} {{user.name.last}}
-		<br>
-		Score: {{score}}
-	</li>
+	<div class="leaderboard-item">
+		<span class="leaderboard-item-rank">{{inc @index}}</span>
+		
+		<span class="leaderboard-item-name">{{user.name.first}} {{user.name.last}}</span>
+		
+		<span class="leaderboard-item-score">{{score}}</span>
+	</div>
 	{{/each}}
-	</ul>
 </div>
