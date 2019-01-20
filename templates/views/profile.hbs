@@ -1,39 +1,45 @@
 {{!< default}}
 
-<div class="container">
-	{{!-- Me --}}
+{{!-- Me --}}
 
-	<p>
-		Me: {{ user.name.first }} {{ user.name.last }}
-		<br>
-		({{ user._id }})
-	</p>
+<div>
+    Me: {{ user.name.first }} {{ user.name.last }}
+    <br>
+    ({{ user._id }})
+</div>
 
-	{{!-- Stickers --}}
+<div class="tabbed-area">
 
-	<p>Stickers:</p>
+    <input id="stickers" class="tab-radio" type="radio" name="tabs" checked="">
+    <input id="recordings" class="tab-radio" type="radio" name="tabs">
 
-	<ul>
-	{{#each stickers}}
-	<li>
-		Word: {{word.name}}
-		<br>
-		Sticker: {{type}}
-	</li>
-	{{/each}}
-	</ul>
+    <div id="tab-labels">
+    <label for="stickers" id="stickers-label">Stickers</label>
+    <label for="recordings" id="recordings-label">Recordings</label>
+    </div>
 
-	{{!-- Recordings --}}
-	<p>Recordings:</p>
+    <div id="stickers-content">
+        <ul>
+        {{#each stickers}}
+        <li>
+            Word: {{word.name}}
+            <br>
+            Sticker: {{type}}
+        </li>
+        {{/each}}
+        </ul>
+    </div>
 
-	{{#each recordings}}
-	<div>
-		{{name}}
-		<br>
-		<audio controls>
-			<source src="{{ file.url }}" type="{{ file.mimetype }}">
-			<a href="{{ file.url }}">{{ file.url }}</a>
-		</audio>
-	</div>
-	{{/each}}
+    <div id="recordings-content">
+        {{#each recordings}}
+        <div>
+            <p id="recording-name">{{name}}</p>
+            <br>
+            <audio controls id="recording-file">
+                <source src="{{ file.url }}" type="{{ file.mimetype }}">
+                <a href="{{ file.url }}">{{ file.url }}</a>
+            </audio>
+        </div>
+        {{/each}}
+    </div>
 </div>
